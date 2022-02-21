@@ -2,23 +2,10 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "=3.42.0"
+      version = ">=3.42.0 <4.0.0"
     }
   }
 }
-
-module "s3_bucket" {
-  source = "terraform-aws-modules/s3-bucket/aws"
-
-  bucket = "${var.prefix}"
-  acl    = "private"
-
-  versioning = {
-    enabled = true
-  }
-
-}
-
 
 provider "aws" {
   region  = var.region
